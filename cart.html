@@ -1,0 +1,272 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Shopping Cart | Guptaji DryFruits</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;family=Libre+Franklin:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#53443a",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#392b23",
+                      "surface": "#fefccf",
+                      "outline": "#707974",
+                      "surface-container-high": "#eceabe",
+                      "error": "#ba1a1a",
+                      "on-tertiary-container": "#c3ada2",
+                      "inverse-primary": "#95d3ba",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#fefccf",
+                      "warm-cream": "#FFFDD0",
+                      "on-error-container": "#93000a",
+                      "charcoal-ink": "#1A1A1A",
+                      "primary-fixed-dim": "#95d3ba",
+                      "secondary-container": "#fed65b",
+                      "on-secondary-fixed-variant": "#574500",
+                      "surface-container-low": "#f8f6c9",
+                      "on-primary-fixed": "#002117",
+                      "surface-variant": "#e6e5b9",
+                      "gold-foil": "#D4AF37",
+                      "inverse-on-surface": "#f5f3c7",
+                      "heritage-taupe": "#A18D82",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e6e5b9",
+                      "secondary": "#735c00",
+                      "tertiary-container": "#514138",
+                      "surface-dim": "#dedcb1",
+                      "royal-emerald": "#064E3B",
+                      "on-secondary-fixed": "#241a00",
+                      "on-secondary-container": "#745c00",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1d1d03",
+                      "outline-variant": "#bfc9c3",
+                      "on-primary-container": "#80bea6",
+                      "on-tertiary-fixed": "#251911",
+                      "tertiary-fixed-dim": "#d9c2b6",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-surface": "#1d1d03",
+                      "background": "#fefccf",
+                      "secondary-fixed": "#ffe088",
+                      "inverse-surface": "#323214",
+                      "on-primary": "#ffffff",
+                      "primary-container": "#064e3b",
+                      "surface-tint": "#2b6954",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#404944",
+                      "tertiary-fixed": "#f6ded1",
+                      "surface-container": "#f2f0c4",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "primary-fixed": "#b0f0d6",
+                      "primary": "#003527"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "24px",
+                      "element-gap": "32px",
+                      "margin-desktop": "80px",
+                      "section-gap": "120px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Libre Franklin"],
+                      "headline-sm": ["Playfair Display"],
+                      "label-sm": ["Libre Franklin"],
+                      "body-lg": ["Libre Franklin"],
+                      "title-lg": ["Libre Franklin"],
+                      "display-lg-mobile": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "1.5", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .royal-gradient {
+            background: linear-gradient(135deg, #064E3B 0%, #003527 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface overflow-x-hidden" data-mode="connect">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-gold-foil/30 bg-surface/95 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 max-w-7xl mx-auto">
+<div class="font-headline-md text-headline-md text-royal-emerald uppercase tracking-widest flex items-center gap-2">
+<a href="index.html" class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-gold-foil">temp_preferences_custom</span>
+Guptaji DryFruits
+</a>
+</div>
+<div class="flex items-center gap-6">
+<a class="bg-royal-emerald text-gold-foil px-6 py-2 border border-gold-foil hover:bg-gold-foil hover:text-royal-emerald transition-all duration-300 font-label-sm text-label-sm uppercase tracking-wider hidden sm:block" href="index.html">
+                    Back to Shop
+                </a>
+<button class="md:hidden text-royal-emerald">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+</header>
+
+<!-- Cart Section -->
+<section class="pt-32 pb-20 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-5xl mx-auto">
+<h1 class="font-display-lg text-display-lg text-royal-emerald mb-2">Shopping Cart</h1>
+<div class="w-24 h-[1px] bg-gold-foil mb-12"></div>
+
+<!-- Cart Items -->
+<div id="cartItems" class="space-y-6 mb-8">
+<!-- Cart items will be populated here -->
+</div>
+
+<!-- Empty Cart Message -->
+<div id="emptyCart" class="text-center py-16">
+<span class="material-symbols-outlined text-6xl text-gold-foil/30 mb-6 block">shopping_cart</span>
+<h2 class="font-headline-md text-headline-md text-on-surface-variant mb-4">Your cart is empty</h2>
+<p class="text-on-surface-variant mb-8">Start adding premium dry fruits to your cart!</p>
+<a href="index.html" class="bg-royal-emerald text-gold-foil px-10 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-gold-foil hover:text-royal-emerald transition-all inline-block">Continue Shopping</a>
+</div>
+
+<!-- Action Buttons -->
+<div id="cartSummary" class="hidden">
+<div class="flex flex-col sm:flex-row gap-6">
+<a href="index.html" class="flex-1 text-center py-4 border border-gold-foil text-gold-foil font-label-sm text-label-sm uppercase tracking-widest hover:bg-royal-emerald hover:text-gold-foil transition-all">
+Continue Shopping
+</a>
+<button id="checkoutBtn" class="flex-1 text-center py-4 bg-royal-emerald text-gold-foil font-label-sm text-label-sm uppercase tracking-widest hover:bg-gold-foil hover:text-royal-emerald transition-all">
+Proceed to WhatsApp
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary-container text-gold-foil border-t border-gold-foil/20 mt-20">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-element-gap mb-16">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-sm text-headline-sm text-gold-foil mb-6 uppercase tracking-widest">Guptaji DryFruits</div>
+<p class="text-tertiary-fixed-dim font-body-md text-body-md mb-8 leading-relaxed">
+                        Premium quality dry fruits, nuts, and spices sourced from the finest farms globally. We believe in purity, trust, and health.
+                    </p>
+</div>
+<!-- Contact -->
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest mb-8 text-gold-foil">Contact Us</h4>
+<ul class="space-y-6">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-gold-foil">location_on</span>
+<span class="text-tertiary-fixed-dim">Gate no. 2, Rohta Rd, near sangam tower, Nand Vihar, Meerut, UP 250002</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-gold-foil">call</span>
+<a class="text-tertiary-fixed-dim hover:text-gold-foil" href="tel:+919999701649">+91 99997 01649</a>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-gold-foil">mail</span>
+<span class="text-tertiary-fixed-dim">guptanikhil1000@gmail.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gold-foil/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-label-sm font-label-sm text-tertiary-fixed-dim">© 2024 Guptaji DryFruits. The Gold Standard of Purity.</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Load and display cart items
+function loadCart() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartItemsDiv = document.getElementById('cartItems');
+  const emptyCart = document.getElementById('emptyCart');
+  const cartSummary = document.getElementById('cartSummary');
+  
+  if (cart.length === 0) {
+    cartItemsDiv.innerHTML = '';
+    emptyCart.classList.remove('hidden');
+    cartSummary.classList.add('hidden');
+    return;
+  }
+  
+  emptyCart.classList.add('hidden');
+  cartSummary.classList.remove('hidden');
+  
+  cartItemsDiv.innerHTML = cart.map((item, index) => `
+    <div class="bg-surface-container-lowest border border-gold-foil/30 p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+      <div class="flex-1">
+        <h3 class="font-title-lg text-title-lg text-royal-emerald mb-2">${item.name}</h3>
+        <p class="text-on-surface-variant text-sm">Quantity: <span class="font-title-lg text-secondary">${item.quantity}</span></p>
+      </div>
+      <button class="remove-item bg-error text-on-error px-6 py-2 font-label-sm text-label-sm uppercase tracking-widest hover:bg-error/80 transition-all" data-index="${index}">
+        Remove
+      </button>
+    </div>
+  `).join('');
+  
+  // Add remove button functionality
+  document.querySelectorAll('.remove-item').forEach(btn => {
+    btn.addEventListener('click', function() {
+      removeItem(parseInt(this.dataset.index));
+    });
+  });
+}
+
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  loadCart();
+}
+
+// Checkout functionality
+document.getElementById('checkoutBtn').addEventListener('click', function() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if (cart.length === 0) {
+    alert('Cart is empty');
+    return;
+  }
+  
+  let message = 'Hello Guptaji DryFruits, I would like to place an order for:%0A%0A';
+  
+  cart.forEach(item => {
+    message += `• ${item.name} (${item.quantity})%0A`;
+  });
+  
+  message += `%0APlease confirm availability and delivery options.`;
+  
+  // Open WhatsApp with the message
+  window.open(`https://wa.me/919999701649?text=${message}`, '_blank');
+});
+
+// Load cart on page load
+loadCart();
+</script>
+
+</body></html>

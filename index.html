@@ -136,6 +136,10 @@
 <a class="bg-royal-emerald text-gold-foil px-6 py-2 border border-gold-foil hover:bg-gold-foil hover:text-royal-emerald transition-all duration-300 font-label-sm text-label-sm uppercase tracking-wider hidden sm:block" href="https://wa.me/919999701649?text=Hello%20Guptaji%20DryFruits,%20I%20would%20like%20to%20place%20an%20order." target="_blank">
                     Call to Order
                 </a>
+<a href="cart.html" class="relative group hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-royal-emerald text-2xl">shopping_cart</span>
+<span id="cartBadge" class="absolute -top-2 -right-2 bg-error text-on-error text-[10px] font-label-sm w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+</a>
 <button class="md:hidden text-royal-emerald">
 <span class="material-symbols-outlined">menu</span>
 </button>
@@ -190,9 +194,15 @@
 <div>
 <h3 class="font-title-lg text-title-lg text-royal-emerald mb-2">Premium Almonds (Badam)</h3>
 <p class="text-on-surface-variant text-sm mb-4">High-quality, crunchy, and nutritious California almonds.</p>
-<p class="font-headline-sm text-headline-sm text-secondary mb-6">₹850 <span class="text-sm font-normal text-on-surface-variant">/kg</span></p>
 </div>
-<a class="w-full text-center py-3 border border-gold-foil text-gold-foil font-label-sm text-label-sm uppercase tracking-widest hover:bg-royal-emerald hover:text-gold-foil transition-all" href="tel:+919999701649">Contact to Order</a>
+<div class="space-y-4">
+<div class="flex gap-2 justify-center flex-wrap">
+<button class="quantity-btn px-3 py-2 border border-gold-foil text-gold-foil font-label-sm text-label-sm uppercase tracking-tighter hover:bg-royal-emerald hover:text-gold-foil transition-all" data-product="almonds" data-quantity="250g" data-price="212.50">250g</button>
+<button class="quantity-btn px-3 py-2 border border-gold-foil text-gold-foil font-label-sm text-label-sm uppercase tracking-tighter hover:bg-royal-emerald hover:text-gold-foil transition-all" data-product="almonds" data-quantity="500g" data-price="425">500g</button>
+<button class="quantity-btn px-3 py-2 border border-gold-foil text-gold-foil font-label-sm text-label-sm uppercase tracking-tighter hover:bg-royal-emerald hover:text-gold-foil transition-all" data-product="almonds" data-quantity="1kg" data-price="850">1kg</button>
+</div>
+<button class="add-to-cart w-full text-center py-3 bg-royal-emerald text-gold-foil font-label-sm text-label-sm uppercase tracking-widest hover:bg-gold-foil hover:text-royal-emerald transition-all" data-product="almonds">Add to Cart</button>
+</div>
 </div>
 </div>
 <!-- Product 2: Cashews -->
@@ -308,5 +318,81 @@
 <span class="absolute right-full mr-4 bg-royal-emerald text-gold-foil px-4 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity font-label-sm text-label-sm uppercase tracking-widest pointer-events-none">Order Now</span>
 </a>
 
+<script>
+// Cart management
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let selectedQuantities = {};
+
+// Update cart badge
+function updateCartBadge() {
+  const badge = document.getElementById('cartBadge');
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if (cart.length > 0) {
+    badge.textContent = cart.length;
+    badge.classList.remove('hidden');
+  } else {
+    badge.classList.add('hidden');
+  }
+}
+
+// Handle quantity button selection
+document.querySelectorAll('.quantity-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const product = this.dataset.product;
+    // Remove active state from all buttons for this product
+    document.querySelectorAll(`.quantity-btn[data-product="${product}"]`).forEach(b => {
+      b.classList.remove('bg-royal-emerald', 'text-gold-foil');
+      b.classList.add('border-gold-foil', 'text-gold-foil');
+    });
+    // Add active state to clicked button
+    this.classList.add('bg-royal-emerald', 'text-gold-foil');
+    this.classList.remove('border-gold-foil', 'text-gold-foil');
+    this.classList.add('border-royal-emerald');
+    // Store selected quantity
+    selectedQuantities[product] = {
+      quantity: this.dataset.quantity,
+      price: this.dataset.price
+    };
+  });
+});
+
+// Handle add to cart
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const product = this.dataset.product;
+    if (!selectedQuantities[product]) {
+      alert('Please select a quantity');
+      return;
+    }
+    
+    const item = {
+      name: product.charAt(0).toUpperCase() + product.slice(1),
+      quantity: selectedQuantities[product].quantity,
+      price: selectedQuantities[product].price,
+      timestamp: Date.now()
+    };
+    
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartBadge();
+    
+    // Show confirmation
+    this.textContent = 'Added to Cart!';
+    this.classList.add('bg-green-600');
+    this.classList.remove('bg-royal-emerald');
+    
+    setTimeout(() => {
+      this.textContent = 'Add to Cart';
+      this.classList.remove('bg-green-600');
+      this.classList.add('bg-royal-emerald');
+    }, 2000);
+    
+    console.log('Cart updated:', cart);
+  });
+});
+
+// Initialize cart badge on page load
+updateCartBadge();
+</script>
 
 </body></html>
